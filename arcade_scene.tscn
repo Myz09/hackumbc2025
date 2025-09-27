@@ -1,3 +1,38 @@
-[gd_scene format=3 uid="uid://dcdcjdexuq0vk"]
+[gd_scene load_steps=4 format=3 uid="uid://dfgjp4rj0ejbh"]
+
+[ext_resource type="PackedScene" uid="uid://bievwxcfew841" path="res://Building/wall.tscn" id="1_75uiw"]
+[ext_resource type="PackedScene" uid="uid://c454i8swpnl0v" path="res://Building/floor.tscn" id="2_dupkc"]
+
+[sub_resource type="Environment" id="Environment_75uiw"]
+background_mode = 1
+tonemap_mode = 2
 
 [node name="ArcadeScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_75uiw")
+
+[node name="Wall" parent="." instance=ExtResource("1_75uiw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+
+[node name="Wall2" parent="." instance=ExtResource("1_75uiw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 50)
+
+[node name="Wall3" parent="." instance=ExtResource("1_75uiw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0)
+
+[node name="Wall4" parent="." instance=ExtResource("1_75uiw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -50)
+
+[node name="Floor" parent="." instance=ExtResource("2_dupkc")]
+
+[node name="Ceiling" parent="." instance=ExtResource("2_dupkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.90047824, 0, -0.4349011, 0, 1, 0, 0.4349011, 0, 0.90047824, 10.473846, 37.653732, -8.922718)
+fov = 179.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 81.91519, 0)
+distance_fade_enabled = true
