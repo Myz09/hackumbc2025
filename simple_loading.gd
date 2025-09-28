@@ -5,14 +5,40 @@ extends Control
 @onready var tip_label: Label = $VBoxContainer/LoadingTips/TipLabel
 
 var loading_tips: Array[String] = [
-	"Tip: The rainforest has four distinct layers to explore!",
-	"Tip: Collect nuts throughout your journey for points!",
-	"Tip: Each layer presents unique platforming challenges!",
-	"Tip: Big Mac must reach the emergent layer to escape!",
-	"Tip: Watch out for obstacles on the forest floor!",
-	"Tip: The canopy is where most rainforest life thrives!",
-	"Tip: Help Big Mac escape the deforestation threat!",
-	"Tip: Learn about rainforest conservation through gameplay!"
+	# Shocking Deforestation Statistics
+	"The tropics lost a record 6.7 million hectares of primary rainforest in 2024 - nearly the size of Panama!",
+	"18.7 million acres of forest are lost globally every year - that's 51,000 acres per day!",
+	"About 27 soccer fields of rainforest are destroyed every single minute!",
+	"80% of global deforestation is linked to agriculture for crops and livestock.",
+	"Deforestation accounts for about 7% of global emissions.",
+	
+	# Big Mac's Species in Danger
+	"Most of the 17 species of macaws are endangered or extinct due to deforestation!",
+	"The last known wild Spix's macaw died in 2000 - only 90 exist in captivity worldwide.",
+	"Less than 50 Glaucous Macaws remain in the wild.",
+	"Only about 2,000 Scarlet Macaws exist in Costa Rica.",
+	"77% of captured parrots die during capture and transport to the pet trade.",
+	
+	# Rainforest Layer Facts
+	"Only 2% of sunlight reaches the forest floor where Big Mac starts his journey!",
+	"5% of sunlight filters to the understory - most wildlife lives here!",
+	"90% of rainforest species live in the canopy layer!",
+	"The canopy forms a 'roof' 60-130 feet above the forest floor.",
+	"Rainforests produce 20% of Earth's oxygen!",
+	
+	# Conservation Hope
+	"Deforestation rates declined by 49.5% in Brazil's first 9 months of 2023!",
+	"One rainforest tree can be home to over 400 insect species.",
+	"Macaws can live up to 100 years in the wild.",
+	"137 species are lost to deforestation every single day.",
+	"Support FSC-certified wood products to help protect rainforests!",
+	
+	# Gameplay Integration
+	"Big Mac struggles in the darkness - just like real forest floors!",
+	"Navigate through dense growth like real rainforest animals!",
+	"Big Mac finally reaches home... but is it still there?",
+	"Like Big Mac, real rainforest species need our help!",
+	"Every tree cut down destroys someone's home."
 ]
 
 var current_tip_index: int = 0
@@ -22,6 +48,11 @@ var actual_loading_progress: float = 0.0
 func _ready():
 	# Set up the loading screen
 	start_loading_animation()
+	
+	# Show initial random tip
+	current_tip_index = randi() % loading_tips.size()
+	tip_label.text = loading_tips[current_tip_index]
+	
 	start_tip_rotation()
 	start_loading()
 
@@ -36,7 +67,11 @@ func start_tip_rotation():
 	tip_tween.tween_callback(update_tip).set_delay(3.0)
 
 func update_tip():
-	current_tip_index = (current_tip_index + 1) % loading_tips.size()
+	# Randomly select a new tip (avoid repeating the same one)
+	var new_index = current_tip_index
+	while new_index == current_tip_index and loading_tips.size() > 1:
+		new_index = randi() % loading_tips.size()
+	current_tip_index = new_index
 	tip_label.text = loading_tips[current_tip_index]
 
 func start_loading():
