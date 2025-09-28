@@ -115,6 +115,6 @@ func on_loading_complete():
 	if loaded_scene:
 		get_tree().change_scene_to_packed(loaded_scene)
 	else:
-		# Fallback to simple arcade scene if main arcade fails
-		print("Main arcade scene failed to load, using simple arcade scene")
-		get_tree().change_scene_to_file("res://simple_arcade.tscn")
+		# Fallback to main menu if simple arcade fails
+		print("Simple arcade scene failed to load, returning to main menu")
+		get_tree().change_scene_to_file("res://main_menu.tscn")
