@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://23tx4se8cyrb"]
+
+[ext_resource type="Script" uid="uid://d054svla2lxle" path="res://Scripts/exit_button.gd" id="1_c8ruc"]
+[ext_resource type="Texture2D" uid="uid://esfhek727tlc" path="res://Assets/button ver 2 (785x271).png" id="2_eap2n"]
+
+[node name="ExitButton" type="Button"]
+offset_left = 727.0
+offset_top = 239.0
+offset_right = 735.0
+offset_bottom = 247.0
+scale = Vector2(0.6, 0.6)
+icon = ExtResource("2_eap2n")
+flat = true
+script = ExtResource("1_c8ruc")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
