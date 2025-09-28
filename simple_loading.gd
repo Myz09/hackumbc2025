@@ -16,7 +16,7 @@ var loading_tips: Array[String] = [
 ]
 
 var current_tip_index: int = 0
-var target_scene: String = "res://arcade.tscn"
+var target_scene: String = "res://simple_arcade.tscn"
 var actual_loading_progress: float = 0.0
 
 func _ready():
@@ -75,10 +75,11 @@ func on_loading_complete():
 	# Brief delay before transitioning
 	await get_tree().create_timer(0.5).timeout
 	
-	# Load the arcade scene
+	# Try to load the arcade scene
 	var loaded_scene = ResourceLoader.load_threaded_get(target_scene)
 	if loaded_scene:
 		get_tree().change_scene_to_packed(loaded_scene)
 	else:
-		# Fallback to direct loading
-		get_tree().change_scene_to_file(target_scene)
+		# Fallback to simple arcade scene if main arcade fails
+		print("Main arcade scene failed to load, using simple arcade scene")
+		get_tree().change_scene_to_file("res://simple_arcade.tscn")
