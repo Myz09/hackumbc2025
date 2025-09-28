@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://s78j4piufjmo"]
+
+[ext_resource type="PackedScene" uid="uid://cehq4av08aobq" path="res://arcade.blend" id="1_kjmcv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kjmcv"]
+size = Vector3(2.0217686, 1.243, 0.053)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_658re"]
+size = Vector3(1.3, 0.1, 1.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ltp0"]
+size = Vector3(0.083496094, 1, 1.3496094)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7sx8j"]
+size = Vector3(0.6032028, 0.35424805, 0.25292206)
+
+[node name="arcade" instance=ExtResource("1_kjmcv")]
+
+[node name="CollisionBorder" type="StaticBody3D" parent="." index="7"]
+transform = Transform3D(5.691109, 0, 0, 0, 5.691109, 0, 0, 0, 5.691109, 1.1073147, -0.84068334, 0)
+
+[node name="wallcollision1" type="CollisionShape3D" parent="CollisionBorder" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41585395, 0.30839074, -0.5936609)
+shape = SubResource("BoxShape3D_kjmcv")
+
+[node name="floorcollision" type="CollisionShape3D" parent="CollisionBorder" index="1"]
+shape = SubResource("BoxShape3D_658re")
+
+[node name="wallcollision2" type="CollisionShape3D" parent="CollisionBorder" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23765618, 0.5698848, 0.68422616)
+shape = SubResource("BoxShape3D_kjmcv")
+
+[node name="wallcollision3" type="CollisionShape3D" parent="CollisionBorder" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6647737, 0.30354378, 0.013848383)
+shape = SubResource("BoxShape3D_4ltp0")
+
+[node name="wallcollision4" type="CollisionShape3D" parent="CollisionBorder" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6382438, 0.30354378, 0.013848383)
+shape = SubResource("BoxShape3D_4ltp0")
+
+[node name="arcademachinecollision" type="CollisionShape3D" parent="CollisionBorder" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012868598, 0.22736362, -0.014820545)
+shape = SubResource("BoxShape3D_7sx8j")
