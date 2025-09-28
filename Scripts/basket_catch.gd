@@ -14,6 +14,8 @@ func _process(delta: float) -> void:
 	health.text="Health: " +  str(Globals.fallhealth);
 	if (Globals.fallhealth<=0):
 		get_tree().change_scene_to_file("res://cut_screen.tscn")
+		Globals.fallhealth=3
+		Globals.fallScore=0
 	
 		
 #func pauseMenu():

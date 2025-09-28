@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://bt20pauodbpr0" path="res://Scripts/good_falling_object.gd" id="6_eebje"]
 [ext_resource type="PackedScene" uid="uid://23tx4se8cyrb" path="res://Sprites/exit_button.tscn" id="6_iqke5"]
 [ext_resource type="PackedScene" uid="uid://bdssx4vf3qkv5" path="res://Sprites/bad_falling_object.tscn" id="7_t41xv"]
-[ext_resource type="PackedScene" uid="uid://cwmiqew887edl" path="res://pausemenu.tscn" id="9_eebje"]
+[ext_resource type="PackedScene" path="res://pausemenu.tscn" id="9_eebje"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lfp4u"]
 a = Vector2(0, -306)

@@ -17,9 +17,13 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotate_x(-event.relative.y * .001)
 		
 func _physics_process(delta: float) -> void:
-	if $Neck/RayCast3D.is_colliding():
-		var target = $Neck/RayCast3D.get_collider()
-		print(target)
+	if $Neck/Camera3D/RayCast3D.is_colliding():
+		var target = $Neck/Camera3D/RayCast3D.get_collider()
+		$CanvasLayer/BoxContainer/Label.show()
+	else:
+		$CanvasLayer/BoxContainer/Label.hide()
+
+
 	# Add the gravity.
 	#if not is_on_floor():
 		#velocity += get_gravity() * delta

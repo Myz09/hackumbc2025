@@ -12,10 +12,10 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.208, 0.2, 2.188)
 
 [node name="ConsoleMenu" parent="." instance=ExtResource("3_38b07")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.4688875, 0.35865426, -0.113396585)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.4688875, 0.82211053, -0.113396585)
 
 [node name="ConsoleMenu2" parent="." instance=ExtResource("3_38b07")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.1655483, 0.35865426, -0.10905069)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.1655483, 0.8466759, -0.10905069)
 
 [node name="ConsoleMenu3" parent="." instance=ExtResource("3_38b07")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 2.7700195, 0.35865426, -0.10905069)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 2.7700195, 0.8479115, -0.10905069)

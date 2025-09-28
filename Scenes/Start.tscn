@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://df8rdvj310d7t"]
+
+[ext_resource type="Script" uid="uid://d054svla2lxle" path="res://Scripts/exit_button.gd" id="1_nt0jr"]
+[ext_resource type="Texture2D" uid="uid://c8le8tqk6mp2f" path="res://Assets/Untitled_1332_x_888_px_1.webp" id="2_y4ycm"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = 9.0
+offset_right = 1925.0
+offset_bottom = 1218.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+script = ExtResource("1_nt0jr")
+
+[node name="Untitled1332X888Px1" type="Sprite2D" parent="."]
+position = Vector2(951.5, 608.5)
+scale = Vector2(1.4301802, 1.3502252)
+texture = ExtResource("2_y4ycm")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
