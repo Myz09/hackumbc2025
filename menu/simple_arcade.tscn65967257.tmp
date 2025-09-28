@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1x2y3z4a5b6"]
+
+[ext_resource type="Script" path="res://simple_arcade.gd" id="1_0x8y9"]
+
+[node name="SimpleArcade" type="Node3D"]
+script = ExtResource("1_0x8y9")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 10)
+fov = 60.0
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.2, 0.05, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+
+[node name="GameTitle" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "Big Mac's Rainforest Escape"
+horizontal_alignment = 1
+modulate = Color(1, 1, 1, 1)
+
+[node name="Instructions" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "Welcome to the Arcade!"
+horizontal_alignment = 1
+modulate = Color(1, 1, 1, 1)
+
+[node name="HSeparator" type="HSeparator" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackToMenuButton" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "Back to Main Menu (ESC)"
+
+[node name="GameInfo" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "🎮 This is your working arcade scene! 🎮"
+horizontal_alignment = 1
+modulate = Color(1, 1, 1, 1)

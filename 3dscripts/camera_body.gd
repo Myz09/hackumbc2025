@@ -15,11 +15,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event is InputEventMouseMotion:
 			neck.rotate_y(-event.relative.x *.001)
 			camera.rotate_x(-event.relative.y * .001)
+	if Input.is_action_pressed("interact"):
+		get_tree().change_scene_to_file("res://lvl1.tscn")
 		
 func _physics_process(delta: float) -> void:
 	if $Neck/Camera3D/RayCast3D.is_colliding():
 		var target = $Neck/Camera3D/RayCast3D.get_collider()
 		$CanvasLayer/BoxContainer/Label.show()
+		if target.has_method("console1"):
+			get_tree().change_scene_to_file("res://lvl1.tscn")			
 	else:
 		$CanvasLayer/BoxContainer/Label.hide()
 

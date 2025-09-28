@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://w886w6a3ot7m"]
+[gd_scene load_steps=7 format=3 uid="uid://w886w6a3ot7m"]
 
 [ext_resource type="PackedScene" uid="uid://s78j4piufjmo" path="res://Sprites/arcade.tscn" id="1_l8v3t"]
 [ext_resource type="PackedScene" uid="uid://dpdk6w3oxi1hi" path="res://Sprites/camera_body.tscn" id="2_kq4rv"]
 [ext_resource type="PackedScene" uid="uid://d13ors4u3k5yo" path="res://console_menu.tscn" id="3_38b07"]
+[ext_resource type="Script" uid="uid://d3nqsqvsg54d1" path="res://Console1.gd" id="4_38b07"]
+[ext_resource type="Script" uid="uid://ct8ieipq1pqkw" path="res://Console2.gd" id="5_kk2fo"]
+[ext_resource type="Script" uid="uid://ddu432ccr12bw" path="res://Console3.gd" id="6_kk2fo"]
 
 [node name="index" type="Node3D"]
 
@@ -13,9 +16,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.208, 0.2, 2.188)
 
 [node name="ConsoleMenu" parent="." instance=ExtResource("3_38b07")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.4688875, 0.82211053, -0.113396585)
+script = ExtResource("4_38b07")
 
 [node name="ConsoleMenu2" parent="." instance=ExtResource("3_38b07")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.1655483, 0.8466759, -0.10905069)
+script = ExtResource("5_kk2fo")
 
 [node name="ConsoleMenu3" parent="." instance=ExtResource("3_38b07")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 2.7700195, 0.8479115, -0.10905069)
+script = ExtResource("6_kk2fo")

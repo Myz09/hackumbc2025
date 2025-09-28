@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8x7y9z2a1b3c"]
+
+[ext_resource type="Script" path="res://working_arcade.gd" id="1_0x8y9"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_arcade"]
+size = Vector3(2, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_arcade"]
+size = Vector3(2, 3, 1)
+
+[node name="WorkingArcade" type="Node3D"]
+script = ExtResource("1_0x8y9")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_floor")
+material_override = StandardMaterial3D.new()
+
+[node name="FloorCollision" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_floor")
+
+[node name="ArcadeMachine" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="ArcadeMesh" type="MeshInstance3D" parent="ArcadeMachine"]
+mesh = SubResource("BoxMesh_arcade")
+material_override = StandardMaterial3D.new()
+
+[node name="ArcadeCollision" type="CollisionShape3D" parent="ArcadeMachine"]
+shape = SubResource("BoxShape3D_arcade")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 10)
+fov = 60.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10, 0)
+light_energy = 1.0
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -120.0
+offset_right = 300.0
+offset_bottom = -20.0
+
+[node name="GameTitle" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "Big Mac's Rainforest Escape"
+horizontal_alignment = 1
+
+[node name="Instructions" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "Welcome to the Arcade!"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackToMenuButton" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "Back to Main Menu (ESC)"
+
+[node name="GameInfo" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "🎮 This is your working arcade scene! 🎮"
+horizontal_alignment = 1

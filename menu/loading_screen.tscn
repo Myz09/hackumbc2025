@@ -1,0 +1,120 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8x7y9z2a1b3c"]
+
+[ext_resource type="Script" path="res://loading_screen.gd" id="1_0x8y9"]
+
+[sub_resource type="Gradient" id="Gradient_1x2y3"]
+colors = PackedColorArray(0.2, 0.4, 0.1, 1, 0.1, 0.3, 0.05, 1, 0.15, 0.35, 0.08, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1x2y3"]
+gradient = SubResource("Gradient_1x2y3")
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_0x8y9")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.2, 0.05, 1)
+
+[node name="BackgroundGradient" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.2, 0.4, 0.1, 0.3)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Big Mac's Rainforest Escape"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Loading your adventure..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/ProgressContainer"]
+layout_mode = 2
+value = 0.0
+show_percentage = false
+
+[node name="ProgressLabel" type="Label" parent="VBoxContainer/ProgressContainer"]
+layout_mode = 2
+text = "0%"
+horizontal_alignment = 1
+
+[node name="LoadingTips" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TipLabel" type="Label" parent="VBoxContainer/LoadingTips"]
+layout_mode = 2
+text = "Tip: The rainforest has four distinct layers to explore!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedElements" type="Node2D" parent="."]
+
+[node name="FloatingLeaves" type="Node2D" parent="AnimatedElements"]
+position = Vector2(100, 100)
+
+[node name="Leaf1" type="ColorRect" parent="AnimatedElements/FloatingLeaves"]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 25.0
+offset_bottom = 18.0
+color = Color(0.2, 0.6, 0.2, 0.8)
+
+[node name="Leaf2" type="ColorRect" parent="AnimatedElements/FloatingLeaves"]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 30.0
+offset_right = 75.0
+offset_bottom = 48.0
+color = Color(0.3, 0.7, 0.3, 0.6)
+
+[node name="Leaf3" type="ColorRect" parent="AnimatedElements/FloatingLeaves"]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 120.0
+offset_top = 60.0
+offset_right = 145.0
+offset_bottom = 78.0
+color = Color(0.25, 0.65, 0.25, 0.7)
+
+[node name="LoadingAnimation" type="Node2D" parent="AnimatedElements"]
+position = Vector2(400, 300)
+
+[node name="SpinningLeaf" type="ColorRect" parent="AnimatedElements/LoadingAnimation"]
+layout_mode = 0
+anchors_preset = 0
+offset_left = -15.0
+offset_top = -10.0
+offset_right = 15.0
+offset_bottom = 10.0
+color = Color(0.4, 0.8, 0.4, 0.9)

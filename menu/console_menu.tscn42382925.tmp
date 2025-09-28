@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d13ors4u3k5yo"]
+
+[ext_resource type="Script" uid="uid://dglrn6ydsv0hb" path="res://console_menu.gd" id="1_yokog"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_sl4or"]
+size = Vector3(1, 1, 0.01)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yokog"]
+size = Vector3(1, 1, 0.01)
+
+[node name="ConsoleMenu" type="Node3D"]
+script = ExtResource("1_yokog")
+
+[node name="ConsoleMenuMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62583953, 0)
+mesh = SubResource("BoxMesh_sl4or")
+
+[node name="ConsoleMenuShape" type="Area3D" parent="."]
+
+[node name="ConsoleMenuCollision" type="CollisionShape3D" parent="ConsoleMenuShape"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.626, 0)
+shape = SubResource("BoxShape3D_yokog")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51366985, 0.043409407)
+
+[connection signal="body_exited" from="ConsoleMenuShape" to="." method="_on_console_menu_shape_body_exited"]
+[connection signal="mouse_entered" from="ConsoleMenuShape" to="." method="_on_console_menu_shape_mouse_entered"]
