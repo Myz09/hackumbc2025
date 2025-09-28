@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpdk6w3oxi1hi"]
+
+[ext_resource type="Script" uid="uid://c8f63mtxetg6r" path="res://3dscripts/camera_body.gd" id="1_4a3uu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7y7tq"]
+
+[node name="CameraBody" type="CharacterBody3D"]
+script = ExtResource("1_4a3uu")
+
+[node name="CameraCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95240283, 0)
+shape = SubResource("CapsuleShape3D_7y7tq")
+
+[node name="Neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90672505, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12042475, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Neck"]
+collide_with_areas = true
