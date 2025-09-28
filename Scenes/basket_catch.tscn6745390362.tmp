@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://dddqcdd6ut0t1"]
+
+[ext_resource type="Texture2D" uid="uid://c2b1sgux45nne" path="res://Assets/PNG/bg_jungle.png" id="1_lfp4u"]
+[ext_resource type="Script" uid="uid://kkpaylu7xg8" path="res://Scenes/basket_catch.gd" id="1_utv8j"]
+[ext_resource type="PackedScene" uid="uid://bus2mp34tngec" path="res://Sprites/player.tscn" id="2_3t7em"]
+[ext_resource type="Script" uid="uid://ylqi78gfyl30" path="res://Scripts/playerHoriz.gd" id="3_htskw"]
+[ext_resource type="PackedScene" uid="uid://c2v0itv35mxrr" path="res://Sprites/good_falling_object.tscn" id="4_3t7em"]
+[ext_resource type="Script" uid="uid://b28rm5761b76o" path="res://Scripts/bad_falling_object.gd" id="4_kvirh"]
+[ext_resource type="PackedScene" uid="uid://23tx4se8cyrb" path="res://Sprites/exit_button.tscn" id="6_iqke5"]
+[ext_resource type="PackedScene" uid="uid://bdssx4vf3qkv5" path="res://Sprites/bad_falling_object.tscn" id="7_t41xv"]
+[ext_resource type="PackedScene" uid="uid://cwmiqew887edl" path="res://pausemenu.tscn" id="9_eebje"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lfp4u"]
+a = Vector2(0, -306)
+b = Vector2(0, 522)
+
+[node name="basketCatch" type="Node2D"]
+script = ExtResource("1_utv8j")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(966.5, 603)
+scale = Vector2(1.4976562, 1.6805556)
+texture = ExtResource("1_lfp4u")
+
+[node name="Player" parent="." instance=ExtResource("2_3t7em")]
+position = Vector2(929, 477)
+script = ExtResource("3_htskw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(933, 449)
+offset = Vector2(0, 15)
+zoom = Vector2(4, 4)
+limit_left = 850
+limit_top = 0
+limit_right = 1000
+limit_bottom = 500
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Borderleft" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(782, 321)
+shape = SubResource("SegmentShape2D_lfp4u")
+
+[node name="BorderRight" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1077, 317)
+shape = SubResource("SegmentShape2D_lfp4u")
+script = ExtResource("4_kvirh")
+
+[node name="GoodFallingObject" parent="." instance=ExtResource("4_3t7em")]
+position = Vector2(2, 0)
+
+[node name="GoodFallingObject2" parent="." instance=ExtResource("4_3t7em")]
+position = Vector2(2, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ExitButton" parent="." instance=ExtResource("6_iqke5")]
+
+[node name="BadFallingObject" parent="." instance=ExtResource("7_t41xv")]
+position = Vector2(1062.5239, 217.48161)
+
+[node name="BadFallingObject2" parent="." instance=ExtResource("7_t41xv")]
+
+[node name="Pausemenu" parent="." instance=ExtResource("9_eebje")]

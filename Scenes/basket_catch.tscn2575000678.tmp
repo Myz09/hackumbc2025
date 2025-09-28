@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dddqcdd6ut0t1"]
+
+[ext_resource type="Texture2D" uid="uid://c2b1sgux45nne" path="res://Assets/PNG/bg_jungle.png" id="1_lfp4u"]
+[ext_resource type="PackedScene" uid="uid://bus2mp34tngec" path="res://Sprites/player.tscn" id="2_3t7em"]
+[ext_resource type="Script" uid="uid://ylqi78gfyl30" path="res://Scripts/playerHoriz.gd" id="3_htskw"]
+[ext_resource type="PackedScene" uid="uid://c2v0itv35mxrr" path="res://Sprites/good_falling_object.tscn" id="4_3t7em"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lfp4u"]
+a = Vector2(0, -306)
+b = Vector2(0, 522)
+
+[node name="basketCatch" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(966.5, 603)
+scale = Vector2(1.4976562, 1.6805556)
+texture = ExtResource("1_lfp4u")
+
+[node name="Player" parent="." instance=ExtResource("2_3t7em")]
+position = Vector2(929, 477)
+script = ExtResource("3_htskw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(933, 449)
+offset = Vector2(0, 15)
+zoom = Vector2(4, 4)
+limit_left = 850
+limit_top = 0
+limit_right = 1000
+limit_bottom = 500
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Borderleft" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(742, 321)
+shape = SubResource("SegmentShape2D_lfp4u")
+
+[node name="BorderRight" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1108, 321)
+shape = SubResource("SegmentShape2D_lfp4u")
+
+[node name="GoodFallingObject" parent="." instance=ExtResource("4_3t7em")]
+position = Vector2(2, 0)

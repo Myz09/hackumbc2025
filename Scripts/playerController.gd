@@ -45,3 +45,17 @@ func _physics_process(delta: float) -> void:
 		position.y = 579
 		Globals.alive = true
 	move_and_slide()
+	
+	if get_slide_collision_count()>0:
+		var collision =get_slide_collision(0)
+		if collision.get_Collision().is_in_group("GoodFallingObjects"):
+			Globals.fallScore+=1;
+			collision.get_collider().position.x=randi_range(830,980)
+			collision.get_collider().position.y=randi_range(0,-500)
+	if get_slide_collision_count()>0:
+		var collision =get_slide_collision(0)
+		if collision.get_Collision().is_in_group("BadFallingObjects"):
+			Globals.fallhealth-=1;
+			Globals.fallCut=true;
+			collision.get_collider().position.x=randi_range(830,980)
+			collision.get_collider().position.y=randi_range(0,-500)
