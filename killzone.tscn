@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://rnwhije8sspv" path="res://killzone.gd" id="1_3brf5"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n3uws"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3brf5"]
+size = Vector2(1928, 220)
 
 [node name="killzone" type="Area2D"]
 script = ExtResource("1_3brf5")
 
 [node name="killCollision" type="CollisionShape2D" parent="."]
-shape = SubResource("WorldBoundaryShape2D_n3uws")
+position = Vector2(954, 100)
+shape = SubResource("RectangleShape2D_3brf5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,7 +1,7 @@
 extends Area2D
 
 
-func _on_body_entered(body:Node2D) -> void:
+func _on_body_entered(sbody:Node2D) -> void:
 	Globals.alive=false;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

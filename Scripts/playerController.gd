@@ -40,4 +40,8 @@ func _physics_process(delta: float) -> void:
 	elif direction < 0:
 		PlayerAnimation.flip_h = false
 	
+	if Globals.alive == false:
+		position.x = 319.0
+		position.y = 579
+		Globals.alive = true
 	move_and_slide()
