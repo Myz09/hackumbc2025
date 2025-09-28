@@ -1,6 +1,49 @@
-[gd_scene load_steps=6 format=3 uid="uid://s78j4piufjmo"]
+[gd_scene load_steps=10 format=4 uid="uid://s78j4piufjmo"]
 
 [ext_resource type="PackedScene" uid="uid://cehq4av08aobq" path="res://arcade.blend" id="1_kjmcv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8swy"]
+resource_name = "Material.010"
+cull_mode = 2
+albedo_color = Color(0.05245727, 0.0869486, 0.09090099, 1)
+metallic = 0.9423077
+roughness = 0.028846154
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_x4yo5"]
+_surfaces = [{
+"aabb": AABB(-0.62737554, -0.11139247, -0.62737554, 1.2547511, 0.738768, 1.2547511),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAAGAAIAAQACAAYAAQADAAIAAAAHAAYABwABAAYABwAAAAUABAADAAEABwAEAAEABAAFAAMABwAFAAQA"),
+"lods": [1.0131341, PackedByteArray("AAABAAIAAQADAAIAAAAEAAEABAADAAEAAAAFAAQABAAFAAMA")],
+"name": "Material.010",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAD/////AAAAAAAA/////wAA////////AAD//wAAAAAAAP//AAD//wAAAAD//wAAAAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_y5y1d"]
+resource_name = "arcade_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.62737554, -0.11139247, -0.62737554, 1.2547511, 0.738768, 1.2547511),
+"attribute_data": PackedByteArray("/1////+f/3//n////1//f/+f/z//3/8//1//P/8f/z//n/+//1//v//f/3//H/9/"),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAAIAAIAAAAJAAgACQABAAgACQADAAEAAQAFAAoAAQAEAAUAAwAEAAEAAwAGAAQACwAGAAMACwAHAAYA"),
+"lods": [1.0131341, PackedByteArray("AAABAAIAAAADAAEAAwAEAAEAAQAEAAUAAwAGAAQABwAGAAMA")],
+"material": SubResource("StandardMaterial3D_f8swy"),
+"name": "Material.010",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAAP//qun/////AAD69AAA//////zF//8AAAAA6tr///////+q6QAA/////6rp//8AAP///MUAAAAA///8xQAA//8AAG/ZAAAAAAAAGfsAAP//AADi6AAAAAAAAJPh+soI6jg9eiD/4v254ycwSwQ19hUJagS1/xwBRv45/pz6yua6+cpR1xh1zNKxJ6CL")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_x4yo5")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kjmcv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kjmcv"]
 size = Vector3(2.0217686, 1.243, 0.053)
@@ -16,19 +59,28 @@ size = Vector3(0.6032028, 0.35424805, 0.25292206)
 
 [node name="arcade" instance=ExtResource("1_kjmcv")]
 
-[node name="CollisionBorder" type="StaticBody3D" parent="." index="7"]
+[node name="Cube_004" type="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(-2.4876152e-07, 0, 5.691, 0, 5.691, 0, -5.691, 0, -2.4876152e-07, 1.107, 0.084, 0)
+mesh = SubResource("ArrayMesh_y5y1d")
+skeleton = NodePath("")
+
+[node name="CollisionBorder" type="StaticBody3D" parent="." index="8"]
 transform = Transform3D(5.691109, 0, 0, 0, 5.691109, 0, 0, 0, 5.691109, 1.1073147, -0.84068334, 0)
 
-[node name="wallcollision1" type="CollisionShape3D" parent="CollisionBorder" index="0"]
+[node name="lastwall" type="StaticBody3D" parent="CollisionBorder" index="0"]
+transform = Transform3D(0.17571267, 0, 0, 0, 0.17571267, 0, 0, 0, 0.17571267, -0.19456923, 0.14771871, 0)
+physics_material_override = SubResource("PhysicsMaterial_kjmcv")
+
+[node name="wallcollision2" type="CollisionShape3D" parent="CollisionBorder/lastwall" index="0"]
+transform = Transform3D(5.691109, 0, 0, 0, 5.691109, 0, 0, 0, 5.691109, -0.24521255, 2.4025931, 3.8940058)
+shape = SubResource("BoxShape3D_kjmcv")
+
+[node name="wallcollision1" type="CollisionShape3D" parent="CollisionBorder" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41585395, 0.30839074, -0.5936609)
 shape = SubResource("BoxShape3D_kjmcv")
 
-[node name="floorcollision" type="CollisionShape3D" parent="CollisionBorder" index="1"]
+[node name="floorcollision" type="CollisionShape3D" parent="CollisionBorder" index="2"]
 shape = SubResource("BoxShape3D_658re")
-
-[node name="wallcollision2" type="CollisionShape3D" parent="CollisionBorder" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23765618, 0.5698848, 0.68422616)
-shape = SubResource("BoxShape3D_kjmcv")
 
 [node name="wallcollision3" type="CollisionShape3D" parent="CollisionBorder" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6647737, 0.30354378, 0.013848383)
@@ -41,3 +93,9 @@ shape = SubResource("BoxShape3D_4ltp0")
 [node name="arcademachinecollision" type="CollisionShape3D" parent="CollisionBorder" index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012868598, 0.22736362, -0.014820545)
 shape = SubResource("BoxShape3D_7sx8j")
+
+[node name="Light2" type="OmniLight3D" parent="." index="9"]
+transform = Transform3D(-0.41384384, -0.12865092, -0.90121156, -0.7763587, 0.56684816, 0.27559093, 0.4753951, 0.813715, -0.33446586, -1.381608, 1.4516594, -2.5405607)
+light_energy = 79.57747
+omni_range = 4096.0
+omni_attenuation = 2.0
