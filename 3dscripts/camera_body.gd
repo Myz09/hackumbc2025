@@ -17,6 +17,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotate_x(-event.relative.y * .001)
 	if Input.is_action_pressed("interact"):
 		get_tree().change_scene_to_file("res://lvl1.tscn")
+	if Input.is_action_pressed("oinput"):
+		get_tree().change_scene_to_file("res://Scenes/basket_catch.tscn")
 		
 func _physics_process(delta: float) -> void:
 	if $Neck/Camera3D/RayCast3D.is_colliding():

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cds7s06a50www"]
+
+[ext_resource type="AudioStream" uid="uid://bjxf2ew2jhcd6" path="res://Scenes/arcade-melody-295434.mp3" id="1_mvsta"]
+
+[node name="Window" type="Window"]
+oversampling_override = 1.0
+
+[node name="Global" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Global"]
+stream = ExtResource("1_mvsta")
+autoplay = true

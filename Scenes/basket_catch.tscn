@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dddqcdd6ut0t1"]
+[gd_scene load_steps=11 format=3 uid="uid://dddqcdd6ut0t1"]
 
 [ext_resource type="Texture2D" uid="uid://c2b1sgux45nne" path="res://Assets/PNG/bg_jungle.png" id="1_lfp4u"]
 [ext_resource type="Script" uid="uid://c4awcvayigbfi" path="res://Scripts/basket_catch.gd" id="1_utv8j"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://bt20pauodbpr0" path="res://Scripts/good_falling_object.gd" id="6_eebje"]
 [ext_resource type="PackedScene" uid="uid://23tx4se8cyrb" path="res://Sprites/exit_button.tscn" id="6_iqke5"]
 [ext_resource type="PackedScene" uid="uid://bdssx4vf3qkv5" path="res://Sprites/bad_falling_object.tscn" id="7_t41xv"]
-[ext_resource type="PackedScene" path="res://pausemenu.tscn" id="9_eebje"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lfp4u"]
 a = Vector2(0, -306)
@@ -59,17 +58,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Pausemenu" parent="." instance=ExtResource("9_eebje")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 130.0
-offset_top = 54.0
-offset_right = 130.0
-offset_bottom = 54.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="BadFallingObject" parent="." instance=ExtResource("7_t41xv")]
 script = ExtResource("4_kvirh")

@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -600.0
 
 func _ready():
 	PlayerAnimation.play("idle");
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():

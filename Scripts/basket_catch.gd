@@ -5,6 +5,7 @@ extends Node2D
 var paused = false;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	pass # Replace with function body.
 
 
@@ -13,9 +14,10 @@ func _process(delta: float) -> void:
 	score.text="Score: " +  str(Globals.fallScore);
 	health.text="Health: " +  str(Globals.fallhealth);
 	if (Globals.fallhealth<=0):
-		get_tree().change_scene_to_file("res://cut_screen.tscn")
 		Globals.fallhealth=3
 		Globals.fallScore=0
+		get_tree().change_scene_to_file("res://cut_screen.tscn")
+		
 	
 		
 #func pauseMenu():
